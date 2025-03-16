@@ -96,7 +96,7 @@ Int32Vector process_query(const Int8Matrix& db, const Vector& query, uint64_t q)
         for (Eigen::Index j = 0; j < db.cols(); ++j) {
             sum += static_cast<int32_t>(db(i, j)) * static_cast<int32_t>(query(j));
         }
-        result(i) = sum;
+        result(i) = sum % q;
     }
     return result;
 }
